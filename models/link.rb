@@ -2,7 +2,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 
 class Link
-attr_reader :title
+
   include DataMapper::Resource
 
   property :id,     Serial
