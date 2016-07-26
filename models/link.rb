@@ -2,8 +2,8 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 
 class Link
-
-include DataMapper::Resource
+attr_reader :title
+  include DataMapper::Resource
 
   property :id,     Serial
   property :title,  String
