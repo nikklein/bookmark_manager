@@ -14,7 +14,8 @@
     <% @links.each do |link| %>
       <li>
         Title: <%= link.title %><br>
-        URL:   <%= link.url   %><br><br>
+        URL:   <%= link.url %><br>
+        Tags:  <%= link.tags.map(&:name) %><br><br>
       </li>
     <% end %>
   </ul>
