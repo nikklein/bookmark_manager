@@ -1,13 +1,25 @@
-<h1> Links </h1>
+<section class="filter_tags">
+  <form action="/tags/filter" method="post">
+    <label for="filter_tag">
+      Filter tags:
+      <input type="text" name="filter_tag">
+    </label>
+    <input type="submit" name="submit" value="Filter"> <a href="/links">Clear filter</a>
+  </form>
+</section>
 
-<ul id='links'>
-  <% @links.each do |link| %>
-    <li>
-      ID:    <%= link.id    %>
-      Title: <%= link.title %>
-      URL:   <%= link.url   %>
-    </li>
-  <% end %>
-</ul>
+<h1> Links </h1>
+<section class="list_links">
+  <ul id='links'>
+    <% @links.each do |link| %>
+      <li>
+        ID:    <%= link.id    %>
+        Title: <%= link.title %>
+        URL:   <%= link.url   %>
+
+      </li>
+    <% end %>
+  </ul>
+</section>
 
 <a href="/">Bookmarks Home</a>
