@@ -15,7 +15,7 @@ feature 'User sign up' do
     fill_in 'Password', with: 'Password123'
     click_button 'Sign up!'
     user = User.all
-    expect(current_path).to eq '/links/navigation'
+    expect(current_path).to eq '/navigation'
     expect(user.map(&:username)).to include('user@email.com')
     expect(user.map(&:password)).not_to be('Password123')
   end

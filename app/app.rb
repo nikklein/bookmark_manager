@@ -14,12 +14,12 @@ class BookmarkManager < Sinatra::Base
     erb :'links/signup'
   end
 
-  post '/links/navigation' do
+  post '/navigation' do
     user = User.create(username: params[:username], password: params[:password])
-    redirect '/links/navigation'
+    redirect '/navigation'
   end
 
-  get '/links/navigation' do
+  get '/navigation' do
     erb :'links/navigation'
   end
 
