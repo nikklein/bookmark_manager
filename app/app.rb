@@ -19,11 +19,10 @@ class Bookmarks < Sinatra::Base
   end
 
   post '/links' do
-    #create a link
     link = Link.create(title: params[:title], url: params[:url])
     params[:tags].split.each do |tag|
-      link.tags << Tag.create(name: tag)
-    end
+    link.tags << Tag.create(name: tag)
+  end
     link.save
     redirect '/links'
   end
@@ -35,7 +34,8 @@ class Bookmarks < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], password: params[:password])
+    user = User.create(email: params[:email], password: params[:password],
+    password_confirmation: params[:password_confirmation])
     session[:user_id] = user.id
     redirect to('/links')
   end
@@ -50,6 +50,5 @@ class Bookmarks < Sinatra::Base
     end
   end
 
-  # start the server if ruby file executed directly
   run! if app_file == $0
 end
