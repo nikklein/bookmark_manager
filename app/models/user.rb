@@ -8,7 +8,7 @@ class User
   attr_accessor :password_confirmation
 
   property :id, Serial
-  property :email, String, :required => true 
+  property :email, String, :required => true
 
   # this will store both the password and the salt
   # It's Text and not String because String holds
@@ -23,6 +23,7 @@ class User
   # read more about it in the documentation
   # http://datamapper.org/docs/validations.html
   validates_confirmation_of :password
+  validates_format_of :email, :as => :email_address
 
   # when assigned the password, we don't store it directly
   # instead, we generate a password digest, that looks like this:
