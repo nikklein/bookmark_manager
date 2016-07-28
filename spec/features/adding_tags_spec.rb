@@ -1,6 +1,6 @@
 feature 'Adding tags' do
 
-  before example do
+  before :each do
     visit '/links/new'
     fill_in 'url', with: 'http://www.makersacademy.com/'
     fill_in 'title', with: 'Makers Academy'
