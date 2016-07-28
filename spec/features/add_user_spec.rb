@@ -21,4 +21,8 @@ feature 'User sign up' do
     expect(current_path).to eq('/users')
     expect(page).to have_content("Password mismatch")
   end
+
+  scenario 'Cannot sign up without email' do
+    expect{ sign_up(email: nil) }.not_to change(User, :count)
+  end
 end
