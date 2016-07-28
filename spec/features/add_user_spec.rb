@@ -15,4 +15,9 @@ feature 'User sign up' do
     expect(page).to have_content('Welcome, user@email.com')
     expect(User.first.email).to eq('user@email.com')
   end
+
+  scenario 'Fail password confirmation' do
+    expect{ sign_up(password_confirmation: 'WrongPW') }.not_to change(User, :count)
+    # expect(page).to have_content("Password mismatch")
+  end
 end
