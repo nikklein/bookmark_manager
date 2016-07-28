@@ -18,6 +18,7 @@ feature 'User sign up' do
 
   scenario 'Fail password confirmation' do
     expect{ sign_up(password_confirmation: 'WrongPW') }.not_to change(User, :count)
-    # expect(page).to have_content("Password mismatch")
+    expect(current_path).to eq('/users')
+    expect(page).to have_content("Password mismatch")
   end
 end
