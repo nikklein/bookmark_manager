@@ -1,5 +1,7 @@
 require 'bcrypt'
 require 'dm-validations'
+require 'securerandom'
+
 
 class User
 
@@ -12,6 +14,7 @@ class User
   property :email, String, :required => true, unique: true
 
   property :password_digest, String, length: 60
+  property :password_token, String, length: 60
 
 
   validates_confirmation_of :password
@@ -23,6 +26,10 @@ class User
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def generate_token
+    self.password_token = SecureRandom.hex
+    self.save
+  end
 
   def self.authenticate(email, password)
   # that's the user who is trying to sign in
