@@ -7,6 +7,7 @@
   <body>
     <% if current_user %>
       <h3>Welcome, <%= current_user.email %></h3>
+      <a href="/signout">Sign out</a><br> 
     <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
     Please refer to the following errors below:

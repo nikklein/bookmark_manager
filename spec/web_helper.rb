@@ -7,10 +7,13 @@ def sign_up(email: 'user@email.com', password: 'Password123', password_confirmat
   click_button 'Sign up'
 end
 
-def sign_in(email: 'user@email.com', password: 'Password123')
-  visit '/users/signin'
-  expect(page.status_code).to eq(200)
+def sign_in(email:, password:)
+  visit '/sessions/new'
   fill_in :email, with: email
   fill_in :password, with: password
   click_button 'Sign in'
+end
+
+def sign_out
+  click_link 'Sign out'
 end

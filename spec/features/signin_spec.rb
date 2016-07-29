@@ -1,4 +1,5 @@
 require './spec/spec_helper'
+require './spec/web_helper'
 
 feature 'User sign in' do
 
