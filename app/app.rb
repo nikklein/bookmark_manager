@@ -41,8 +41,8 @@ class BookmarkManager < Sinatra::Base
     end
   end
 
-  get '/users/signin' do
-    erb :'/users/signin'
+  get '/sessions/new' do
+    erb :'/sessions/new'
   end
 
   post '/sessions' do
