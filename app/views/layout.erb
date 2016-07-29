@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title>Bookmark Manager</title>
@@ -27,5 +27,18 @@
     <% end %>
 
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookmark Manager</title>
+  </head>
+
+  <body>
+    <%= partial :welcome %>
+    <%= partial :flash %>
+    <%= yield %>
   </body>
 </html>
