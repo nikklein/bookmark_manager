@@ -1,3 +1,6 @@
+module SessionHelpers
+
+
 def sign_up(email: 'user@email.com', password: 'Password123', password_confirmation: 'Password123')
   visit '/users/new'
   expect(page.status_code).to eq(200)
@@ -15,5 +18,7 @@ def sign_in(email:, password:)
 end
 
 def sign_out
-  click_link 'Sign out'
+  click_button 'Sign out'
+end
+
 end

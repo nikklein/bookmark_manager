@@ -1,5 +1,4 @@
 require './spec/spec_helper'
-require './spec/web_helper'
 
 feature 'User sign up' do
   scenario 'User can visit sign up page' do

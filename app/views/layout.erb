@@ -7,7 +7,10 @@
   <body>
     <% if current_user %>
       <h3>Welcome, <%= current_user.email %></h3>
-      <a href="/signout">Sign out</a><br> 
+        <form method='post' action='/sessions'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign out'>
+        </form>
     <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
     Please refer to the following errors below:
@@ -17,6 +20,11 @@
       <% end %>
     </ul>
   <% end %>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
 
     <%= yield %>  <!-- this then yields to the view which has been called by your controller -->
   </body>
