@@ -31,4 +31,10 @@ feature 'User sign up' do
     expect { sign_up(email: "notvalid@google") }.not_to change(User, :count)
   end
 
+  scenario "I can sign in" do
+    sign_up
+    sign_in(email: 'alice@example.com', password: '12345678')
+    expect(page).to have_content('Welcome, alice@example.com')
+  end
+
 end

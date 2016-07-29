@@ -50,6 +50,10 @@ class Bookmarks < Sinatra::Base
     erb :'users/new'
   end
 
+  post '/signin' do
+    erb :'signin'
+  end
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
